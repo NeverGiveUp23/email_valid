@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="/registration/new" method="POST" class="col-6 mx-auto ">
+    <h2 class="text-center">Register</h2>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p id="flash">{{message}}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <div class="form-floating mb-3">
+
+      <label for="first_name">First Name:</label>
+      <input type="text" name="first_name" class="form-control" placeholder="First Name">
+    </div>
+    <div class="form-floating mb-3">
+      <label for="last_name">Last Name:</label>
+      <input type="text" name="last_name" class="form-control" placeholder="last name">
+    </div>
+    <div class="form-floating mb-3">
+      <label for="email">Email:</label>
+      <input type="text" name="email" class="form-control" placeholder="Email">
+    </div>
+    <div class="form-floating mb-3">
+      <label for="password">Password:</label>
+      <input type="text" name="password" class="form-control" placeholder="Password">
+    </div>
+    <div class="form-floating mb-3">
+      <label for="password">Confirm Password:</label>
+      <input type="text" name="password" class="form-control" placeholder="Confirm Password">
+    </div>
+    <input id="button" type="submit" value="Sign Up!" class=" btn btn-danger container ">
+  </form>
+</body>
+</html>
