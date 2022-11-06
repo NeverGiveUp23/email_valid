@@ -10,7 +10,7 @@
   <form action="/registration/new" method="POST" class="col-6 mx-auto ">
     <h2 class="text-center">Register</h2>
 
-    {% with messages = get_flashed_messages() %}
+    {% with messages = get_flashed_messages(category_filter = ['register']) %}
     {% if messages %}
     {% for message in messages %}
     <p id="flash">{{message}}</p>
@@ -33,13 +33,38 @@
     </div>
     <div class="form-floating mb-3">
       <label for="password">Password:</label>
-      <input type="text" name="password" class="form-control" placeholder="Password">
+      <input type="password" name="password" class="form-control" placeholder="Password">
     </div>
     <div class="form-floating mb-3">
       <label for="password">Confirm Password:</label>
-      <input type="text" name="password" class="form-control" placeholder="Confirm Password">
+      <input type="password" name="password" class="form-control" placeholder="Confirm Password">
     </div>
     <input id="button" type="submit" value="Sign Up!" class=" btn btn-danger container ">
   </form>
+
+
+  <div>
+    <form action="/user" method="POST" class="col-6 mx-auto ">
+      <h2 class="text-center">Login</h2>
+  
+      {% with messages = get_flashed_messages(category_filter = ['login']) %}
+      {% if messages%}
+      {% for message in messaages %}
+      <p id="flash">{{message}}</p>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+  
+      <div class="form-floating mb-3">
+        <label for="email">Email:</label>
+        <input type="text" name="email" class="form-control" placeholder="Email">
+      </div>
+      <div class="form-floating mb-3">
+        <label for="password">Password:</label>
+        <input type="password" name="password" class="form-control" placeholder="Password">
+      </div>
+      <input id="button" type="submit" value="Sign In" class=" btn btn-danger container ">
+    </form>
+  </div>
 </body>
 </html>
